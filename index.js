@@ -16,12 +16,14 @@ const licenseChoices = [
     { type: 'input', name: 'description', message: 'Enter a description for your project: '},
     { type: 'input', name: 'installation', message: 'Enter installation instruction for your project:'},
     { type: 'input', name: 'usage', message: 'Enter usage information:'},
+    { type: 'input', name: 'screenshot', message: 'Enter the name and relative path of a screenshot you would like to add. Ex. ./images/screenshot'},
     { type: 'input', name: 'github', message: 'Enter your GitHub username:'},
     { type: 'input', name: 'email', message: 'Enter your Email:'},
+    
     { type: 'list', name: 'license', message: 'Select a license for your project:',
         choices: licenseChoices
     }
-];      
+];
 //assigns license to licensebadge
 function generateReadme() {
     inquirer.prompt(questions).then(answers => {
@@ -60,7 +62,7 @@ ${answers.installation}
 
 ## Usage
 ${answers.usage}
-
+![Screenshot](${answers.screenshot})
 ## License
 This project is licensed under the ${answers.license} license.
 
